@@ -1,8 +1,12 @@
+menMai :: Integral a => [a] -> [String] -- a func Odd precisa de um inteiro (Int ou Integer) para avaliar
 menMai range = [if x > 10 then "mai" else "men" | x <- range, odd x]
 -- func como
 
+
+length' :: Num a => [b] -> a
 length' lista = sum [1 | _ <- lista] -- extrai os elementos e não os guarda, mas tem output 1, que é somado pelo sum.  
 
+removerUp :: [Char] -> [Char]
 removerUp string = [x | x <- string, not(x `elem` ['A'..'Z'])] -- remove o uppercase de uma string
 
 main :: IO ()
