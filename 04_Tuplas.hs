@@ -1,4 +1,4 @@
-triangulos :: [(Integer, Integer, Integer)] -- func nao retorna nada, devolve um trio de inteiros
+triangulos :: [(Integer, Integer, Integer)] -- func devolve um trio de inteiros
 triangulos = [ (a,b,c) | c <- [1..10], a <- [1..10], b <- [1..10], a^2 + b^2 == c^2, a+b+c==24]  
  -- funcao triangulos pega todas as possibilidades ate 10 e filtra: retangulo e per = 24
 
