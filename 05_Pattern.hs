@@ -37,6 +37,10 @@ sum' :: (Num a) => [a] -> a  -- precisa ser Num pelo +, soma os elementos da lis
 sum' [] = 0  -- caso base
 sum' (x:xs) = x + sum' xs  --soma o primeiro elemento com a soma do resto
 
+primeira :: [Char] -> [Char]
+primeira "" = "string vazia"
+primeira tudo@(x:_) = "o primeiro char de " ++ tudo ++ " e " ++ [x] -- o @ faz guardar todo o conteudo do padrao
+
 main :: IO ()
 main = do
     print(patternMatching 10)
@@ -49,4 +53,5 @@ main = do
     print(falar [1,2,3])
     print(length' [1,2,3])
     print(sum' [1,2,3])
+    print(primeira "abcde")
 
