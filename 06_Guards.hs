@@ -29,6 +29,20 @@ cDensidade :: (Fractional a) => [(a, a)] -> [a] --calcula a densidade de uma lis
 cDensidade xs = [densi m v | (m, v) <- xs] --extrai m e v, aplica massa/volume e retorna
     where densi massa volume = massa/volume --define a funcao com where
 
+cilindro :: (RealFloat a) => a -> a -> a
+cilindro raio altura =
+    let lado = 2*pi*raio*altura -- define dentro do "in" apenas, where define na funcao toda
+        topo = pi*raio^2
+    in lado + 2*topo
+
+cDensidade' :: (Fractional a, Ord a) => [(a, a)] -> [a] --calcula a densidade de uma lista tuplas
+cDensidade' xs = [densi | (m, v) <- xs, let densi = m / v, densi < 1.2] -- usa let dentro da list comprehension e filtra
+
+lista :: [a] -> String  
+lista xs = "A lista " ++ case xs of [] -> "e vazia"  -- pattern matching com case!!
+                                    [x] -> "tem 1 elemento"  -- na verdade todo pattern matching em definicao de funcoes usa case
+                                    xs -> "e grande"  
+
 main :: IO ()
 main = do
     print("oi")
@@ -36,3 +50,6 @@ main = do
     print(maiorMenor 10 5)
     print(iniciais "Yago" "Campello")
     print(cDensidade [(10,2), (20,5)])
+    print(cilindro 10 10)
+    print(cDensidade' [(10,2), (20,5)])
+    print(lista "o")
