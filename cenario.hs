@@ -34,3 +34,4 @@ total l = foldr(\(_,preco,_,qtd) acum -> acum + preco* fromIntegral qtd) 0.0 l
 --3.2 salva o nome e a categoria dos produtos
 nomes :: [Produto] -> String
 nomes l = foldr(\(nome,_,cat,_) acum -> nome ++ " (" ++ cat ++ ") " ++ acum) [] l
+
